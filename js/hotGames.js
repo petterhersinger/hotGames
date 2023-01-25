@@ -38,8 +38,8 @@ function getGames(all) {
                     var date = value.yearPublished;
                     var thumb = value.thumbnail;
                     var rank = value.rank;
-                    items.push("<img src="+ thumb+" alt='Games thumbnail'>"+ "<article><h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
-                    i++;
+                    items.push("<article><img src=" + thumb+" alt='Games thumbnail'>" + "<h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
+                    numberOfGames++;
                 });
             } else {
                 $.each(response, function (value) {
@@ -48,13 +48,13 @@ function getGames(all) {
                     var thumb = value.thumbnail;
                     var rank = value.rank;
                     if (date <= 2023) {
-                        items.push("<img src="+ thumb+" alt='Games thumbnail'>"+ "<article><h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
-                        i++;
+                        items.push("<article><img src=" + thumb+" alt='Games thumbnail'>" + "<h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
+                        numberOfGames++;
                     }
                 });
             }
         
-            $("#games").html(items.join("Number of Games: " + numberOfGames));
+            $("#games").html(items.join(""));
         }
     });
 }
