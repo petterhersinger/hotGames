@@ -19,6 +19,11 @@ function getGames(all) {
     $.ajax({
         url: "http://bgg-json.azurewebsites.net/hot",
         dataType: "json",
+        type: "GET",
+        data: {
+            get_param: "value"
+        },
+
         success: function (response) {
             console.log("Förfrågan gick bra!");
 
@@ -28,23 +33,23 @@ function getGames(all) {
                 rank = 1;
         
             if (all) {
-                $.each(response, function (value) {
-                    var gameName = value.name;
-                    var releaseDate = value.released;
-                    var thumbnail = value.thumbnail;
-                    items.push("<article>" + thumbnail + "<h2>" + rank + ". " + gameName + "</h2><p>Publicerat:" + releaseDate + "</p></article>");
-                    i++; 
-                    console.log("Alla funkade");
+                $.each(response, function (index, value) {
+                    var name = value.name;
+                    var date = value.yearPublished;
+                    var thumb = value.thumbnail;
+                    var rank = value.rank;
+                    items.push("<img src="+ thumb+" alt='Games thumbnail'>"+ "<article><h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
+                    i++;
                 });
             } else {
                 $.each(response, function (value) {
-                    var gameName = value.name;
-                    var releaseDate = value.released;
-                    var thumbnail = value.thumbnail;
-                    if (releaseDate <= 2022) {
-                        items.push("<article>" + thumbnail + "<h2>" + rank + ". " + gameName + "</h2><p>Publicerat:" + releaseDate + "</p></article>");
+                    var name = value.name;
+                    var date = value.yearPublished;
+                    var thumb = value.thumbnail;
+                    var rank = value.rank;
+                    if (date <= 2023) {
+                        items.push("<img src="+ thumb+" alt='Games thumbnail'>"+ "<article><h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
                         i++;
-                        console.log("Published funkade");
                     }
                 });
             }
