@@ -26,9 +26,8 @@ function getGames(all) {
             console.log("Förfrågan gick bra!");
 
             var items = [],
-                i = 0,
-                numberOfGames = 0,
-                rank = 1;
+                numberOfGames = 0;
+
         
             if (all) {
                 $.each(response, function (index, value) {
@@ -38,7 +37,7 @@ function getGames(all) {
                     var rank = value.rank;
 
                     numberOfGames++;
-                    items.push("<article><img src=" + thumb+" alt='Games thumbnail'>" + "<h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
+                    items.push("<article><img src= " + thumb + " alt='Thumbnail for "+name+"'>" + "<h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
                 });
             } else {
 
@@ -50,7 +49,7 @@ function getGames(all) {
 
                     if (date !== 2022) {
                         numberOfGames++;
-                        items.push("<article><img src=" + thumb+" alt='Games thumbnail'>" + "<h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
+                        items.push("<article><img src= " + thumb + " alt='Thumbnail for "+name+"'>" + "<h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
                     }
                 });
             }
