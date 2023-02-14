@@ -45,7 +45,7 @@ function getGames(all) {
                     var thumb = value.thumbnail;
                     var rank = value.rank;
 
-                    if (date !== 2023) {
+                    if(date <= 2022) {
                         numberOfGames++;
                         items.push("<article><img src= " + thumb + " alt='Thumbnail for "+name+"'>" + "<h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
                     }
