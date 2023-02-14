@@ -1,7 +1,5 @@
 $(document).ready(function () {
-
     getGames(true);
-
     $("#showAll").on("click", function () {
         getGames(true);
     });
@@ -15,7 +13,7 @@ $(document).ready(function () {
 function getGames(all) {
 
     $.ajax({
-        url: "http://bgg-json.azurewebsites.net/hot",
+        url: "https://bgg-json.azurewebsites.net/hot",
         dataType: "json",
         type: "GET",
         data: {
@@ -47,7 +45,7 @@ function getGames(all) {
                     var thumb = value.thumbnail;
                     var rank = value.rank;
 
-                    if (date !== 2022) {
+                    if (date !== 2023) {
                         numberOfGames++;
                         items.push("<article><img src= " + thumb + " alt='Thumbnail for "+name+"'>" + "<h2>" + rank + ". " + name + "</h2><p>Publicerat: </p>" + date + "</article>");
                     }
